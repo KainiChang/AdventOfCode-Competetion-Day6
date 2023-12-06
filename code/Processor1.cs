@@ -13,10 +13,10 @@ public class Processor1
             counts.Add(SingleRaceProcess(timeArray[index], distanceArray[index]));
         }
         // get the product of all counts
-        long count = 0;
+        long count = 1;
         foreach (var item in counts)
         {
-            count =+ item;
+            count *= item;
         }
         return count;
     }
@@ -38,14 +38,8 @@ public class Processor1
     public static long[] ReadInput(string input)
     {//split input into sections by new line
         var sections = input.Split(new string[] { "\n\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-        Console.WriteLine(sections[0]);
 
         var timeArray =sections[0].Split(" ", StringSplitOptions.RemoveEmptyEntries).Skip(1).Select(x => long.Parse(x)).ToArray();
-        
-        foreach (var item in timeArray)
-        {
-            Console.WriteLine(item);
-        }
 
         return timeArray;
     }
